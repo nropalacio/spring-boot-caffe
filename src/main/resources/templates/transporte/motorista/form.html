@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+<header th:replace="layout/layout :: header"></header>
+<div class="container py-4">
+		<div class="card bg-light">
+			<div class="card-header" th:text="${titulo}"></div>
+			<div class="card-body">
+				<h4 class="card-title">
+					<a th:href="@{/transporte/motorista/listar/}" th:text="'Volver'" class="btn btn-secondary btn-xs"></a>
+				</h4>
+				
+				<form th:action="@{/transporte/motorista/form}" th:object="${motorista}" method="post" enctype="multipart/form-data">
+
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label">Nombre</label>
+						<div class="col-sm-4">
+							<input type="text" th:field="*{nombre}" class="form-control"
+								th:errorclass="'form-control alert-danger'" /> <small
+								class="form-text text-danger"
+								th:id="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></small>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label">Apellido</label>
+						<div class="col-sm-4">
+							<input type="text" th:field="*{apellido}" class="form-control"
+								th:errorclass="'form-control alert-danger'" /> <small
+								class="form-text text-danger"
+								th:id="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></small>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label">Dui</label>
+						<div class="col-sm-4">
+							<input type="text" th:field="*{dui}" class="form-control"
+								th:errorclass="'form-control alert-danger'" /> <small
+								class="form-text text-warning"
+								th:id="${#fields.hasErrors('dui')}" th:errors="*{dui}"></small>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label">Nit</label>
+						<div class="col-sm-4">
+							<input type="text" th:field="*{nit}" class="form-control"
+								th:errorclass="'form-control alert-danger'" /> <small
+								class="form-text text-warning"
+								th:id="${#fields.hasErrors('nit')}" th:errors="*{nit}"></small>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label">Licencia</label>
+						<div class="col-sm-4">
+							<input type="text" th:field="*{lic}" class="form-control"
+								th:errorclass="'form-control alert-danger'" /> <small
+								class="form-text text-warning"
+								th:id="${#fields.hasErrors('lic')}" th:errors="*{lic}"></small>
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<div class="col-sm-4">
+							<input type="submit" value="Crear Motorista"
+								class="btn btn-success" />
+						</div>
+					</div>
+					
+				</form>
+				
+				<div class="input-group mb-3">
+ 					 <div class="input-group-prepend">
+  		  				<label class="input-group-text" for="inputGroupSelect01">Placas</label>
+  					</div>
+  						<select class="custom-select" id="inputGroupSelect01" th:field="*{placas}">
+  							<option value="0" selected>...</option>
+  							<option th:each="placa: ${placas}" th:value="${placa.id}" th:text="${placa.placa}">One</option>
+  						</select>
+					</div>
+				
+				
+				
+			</div>
+		</div>
+	</div>
+<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

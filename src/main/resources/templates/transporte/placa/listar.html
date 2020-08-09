@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+<header th:replace="layout/layout :: header"></header>
+<div class="container py-4">
+		<div class="card bg-light">
+			<div class="card-header" th:text="${titulo}"></div>
+			<div class="card-body">
+				<h4 class="card-title">
+					<a th:href="@{/transporte/placa/form/}" th:text="'Crear Placa'" class="btn btn-primary btn-xs"></a>
+				</h4>
+				
+				<table class="table table-striped table-bordered">
+			<thead class="thead-dark">
+				<tr>
+					<th>Id</th>
+					<th>Placa</th>
+					<th>Propietario</th>
+					<th>Marca</th>
+					<th>Color</th>
+					<th>Eliminar</th>
+			</thead>
+			<tbody>
+				<tr th:each="placa: ${placas}">
+					<td th:text="${placa.id}"></td>
+					<td th:text="${placa.placa}"></td>
+					<td th:text="${placa.propietario}"></td>
+					<td th:text="${placa.marca}"></td>
+					<td th:text="${placa.color}"></td>
+					<td><a th:href="@{/transporte/placa/eliminar/} + ${placa.id}" th:text="Eliminar" class="btn btn-danger btn-xs" onclick="return confirm('Le quieres decir adios?');"></a></td>
+				</tr>
+
+			</tbody>
+		</table>
+			</div>
+		</div>
+	</div>
+<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+.box{
+display: block;
+}
+
+.texto{
+	width: 500px;
+	height: 100px;
+}
+.logoimg{
+	width: 100px;
+	height: 100px;
+}
+.centro{
+	display: flex;
+}
+
+.elcentro{
+	text-align: left;
+}
+
+.texto{
+	width: 600px;
+	height: 600px;
+}
+.imagen{
+	text-align: center;
+	padding-top :100px;
+	width: 400px;
+	height: 600px;
+}

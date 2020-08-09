@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+<header th:replace="layout/layout :: header"></header>
+<div class="container py-4">
+		<div class="card bg-light">
+			<div class="card-header" th:text="${titulo}"></div>
+			<div class="card-body">
+				<h4 class="card-title">
+					<a th:href="@{/transporte/motorista/form/}" th:text="'Crear Motorista'" class="btn btn-primary btn-xs"></a>
+				</h4>
+				
+				<table class="table table-striped table-bordered">
+			<thead class="thead-dark">
+				<tr>
+					<th>Id</th>
+					<th>Nombre</th>
+					<th>Apellido</th>
+					<th>Licencia</th>
+					<th>Eliminar</th>
+			</thead>
+			<tbody>
+				<tr th:each="motorista: ${motoristas}">
+					<td th:text="${motorista.id}"></td>
+					<td th:text="${motorista.nombre}"></td>
+					<td th:text="${motorista.apellido}"></td>
+					<td th:text="${motorista.lic}"></td>
+					<td><a th:href="@{/transporte/motorista/eliminar/} + ${motorista.id}" th:text="Eliminar" class="btn btn-danger btn-xs" onclick="return confirm('Le quieres decir adios?');"></a></td>
+				</tr>
+
+			</tbody>
+		</table>
+			</div>
+		</div>
+	</div>
+<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

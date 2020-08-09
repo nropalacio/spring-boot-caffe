@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<head th:replace="layout/layout :: head">
+<body>
+<header th:replace="layout/layout :: header"></header>
+
+
+<div class="container my-4">
+
+<div class="centro">
+
+<div class="box texto">
+<h4 th:text="${bienvenido}"></h4>
+<hr />
+
+<div>
+
+<p>Con esta app puedes administrar todo lo relacionado a las compras de cafe</p>
+<p>Las funciones con las que cuenta la pp son las siguiente:</p>
+<div>
+<ul class="list-group p0">
+<li class="list-group-item">Administracion de clientes</li>
+<li class="list-group-item"><a th:href="@{/admistracion/calidad/listar}" th:text="'Administracion de Calidades'"></a></li>
+<li class="list-group-item">Administracion de Transporte</li>
+<li class="list-group-item">Creacion de recibos</li>
+<li class="list-group-item">Impresion de recibos</li>
+<li class="list-group-item">Informes</li>
+</ul>
+</div>
+<br>
+<br>
+<p>Si quieres crear un recibo puedes empezar aqui: <a href="#" th:text="'Crear recibo'" class="btn btn-success btn-xs"></a></p>
+</div>
+
+
+</div>
+<div class="box imagen">
+
+<img th:src="@{/images/nebula_text.png}" alt="NebulaStorm Logo" width="250" height="250" />
+
+</div>
+</div>
+</div>
+<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>
